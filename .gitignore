@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+archive-backup/
+archive-copy/
+screenshots/

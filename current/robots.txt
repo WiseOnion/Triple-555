@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /archive/
+Disallow: /docs/
+
+Sitemap: https://triplenickle555.org/sitemap.xml
