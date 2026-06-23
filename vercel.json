@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about",      "destination": "/pages/about.html" },
+    { "source": "/blog",       "destination": "/pages/blog.html" },
+    { "source": "/contact",    "destination": "/pages/contact.html" },
+    { "source": "/donate",     "destination": "/pages/donate.html" },
+    { "source": "/events",     "destination": "/pages/events.html" },
+    { "source": "/gallery",    "destination": "/pages/gallery.html" },
+    { "source": "/membership", "destination": "/pages/membership.html" },
+    { "source": "/resources",  "destination": "/pages/resources.html" },
+    { "source": "/scholarship","destination": "/pages/scholarship.html" },
+    { "source": "/tributes",   "destination": "/pages/tributes.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
