@@ -386,20 +386,20 @@
     }
     .timeline {
       position: relative;
-      padding-left: 2rem;
+      padding-left: 2.5rem;
     }
     .timeline::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.6rem;
-      bottom: 0.6rem;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
+      top: 0.35rem;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
     }
     .timeline-item {
       position: relative;
-      padding: 0 0 2.5rem 1.5rem;
+      padding: 0 0 2.5rem 2rem;
       opacity: 0;
       transform: translateX(-20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
@@ -411,13 +411,14 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2.4rem;
-      top: 0.55rem;
-      width: 8px;
-      height: 8px;
+      left: calc(-2.5rem - 4px);
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--gold);
-      border: 2px solid var(--off-white);
+      border: 3px solid var(--off-white);
+      box-shadow: 0 0 0 2px var(--gold);
     }
     .timeline-year {
       font-family: var(--font-sans);
