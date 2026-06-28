@@ -34,7 +34,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -279,7 +280,7 @@
       <div class="section-eyebrow fade-in">Featured Story</div>
       <div class="featured-card fade-in">
         <div class="featured-img">
-          <img src="/images/historical-photos/triple-nickle-1.jpg" alt="Sgt. Joe Harris, Triple Nickle veteran" style="object-position:center 30%">
+          <img src="/images/historical-photos/triple-nickle-1.jpg" alt="Sgt. Joe Harris, Triple Nickle veteran" width="800" height="600" loading="lazy" style="object-position:center 30%">
           <div class="featured-img-overlay"></div>
           <div class="featured-tag">Remembrance</div>
         </div>
@@ -302,7 +303,7 @@
 
         <div class="article-card fade-in" data-cat="chapter">
           <div class="article-img">
-            <img src="/images/events/Annual_Red_&_White_Extravaganza.png" alt="Red and White Extravaganza">
+            <img src="/images/events/Annual_Red_&_White_Extravaganza.png" alt="Red and White Extravaganza" width="800" height="600" loading="lazy">
             <div class="article-tag">Chapter News</div>
           </div>
           <div class="article-body">
@@ -336,7 +337,7 @@
 
         <div class="article-card fade-in" data-cat="history">
           <div class="article-img">
-            <img src="/images/historical-photos/triple-nickle-13.jpg" alt="Historical photo of the 555th" style="object-position:center 30%">
+            <img src="/images/historical-photos/triple-nickle-13.jpg" alt="Historical photo of the 555th" width="800" height="600" loading="lazy" style="object-position:center 30%">
             <div class="article-tag">Historical Spotlight</div>
           </div>
           <div class="article-body">
@@ -370,7 +371,7 @@
 
         <div class="article-card fade-in" data-cat="history">
           <div class="article-img">
-            <img src="/images/historical-photos/triple-nickle-14.jpg" alt="555th historical" style="object-position:center 25%">
+            <img src="/images/historical-photos/triple-nickle-14.jpg" alt="555th historical" width="800" height="600" loading="lazy" style="object-position:center 25%">
             <div class="article-tag">Historical Spotlight</div>
           </div>
           <div class="article-body">
@@ -386,7 +387,7 @@
 
         <div class="article-card fade-in" data-cat="chapter">
           <div class="article-img">
-            <img src="/images/events/Black_&_White_Extravaganza.png" alt="Black and White Extravaganza">
+            <img src="/images/events/Black_&_White_Extravaganza.png" alt="Black and White Extravaganza" width="800" height="600" loading="lazy">
             <div class="article-tag">Chapter News</div>
           </div>
           <div class="article-body">
@@ -476,7 +477,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="/images/logo-footer.png" alt="555th PIA Triple Nickle logo">
+        <img src="/images/logo-footer.png" alt="555th PIA Triple Nickle logo" width="160" height="160" loading="lazy">
         <p>The Samuel Council Chapter of the 555th Parachute Infantry Association, honoring America's first Black paratroopers and investing in the next generation through education and community service in Fayetteville, NC.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/fay555thPIATripleNickle/" target="_blank" rel="noopener" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg> Facebook</a>
@@ -515,28 +516,25 @@
   </footer>
 
   <a href="#" id="backToTop" aria-label="Back to top">&#8593;</a>  <script>
-    // Category filter
     document.querySelectorAll('.cat-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const cat = btn.dataset.cat;
         document.querySelectorAll('.article-card').forEach(card => {
-          if (cat === 'all' || card.dataset.cat === cat) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+        });
+      });
+    });
 
-    // Load more (placeholder)
-    document.getElementById('loadMore').addEventListener('click', function() {
+    document.getElementById('loadMore').addEventListener('click', function () {
       this.textContent = 'No More Stories, Check Back Soon';
       this.disabled = true;
       this.style.opacity = '0.5';
       this.style.cursor = 'default';
+    });
 
-    // Newsletter subscribe (placeholder)
-    document.querySelector('.newsletter-form button').addEventListener('click', function() {
+    document.querySelector('.newsletter-form button').addEventListener('click', function () {
       const input = document.querySelector('.newsletter-form input');
       if (input.value && input.value.includes('@')) {
         input.value = '';
@@ -547,6 +545,7 @@
         input.style.outline = '2px solid #8B1A1A';
         input.placeholder = 'Please enter a valid email';
       }
+    });
   </script>
   <script src="assets/js/nav.js" defer></script>
 </body>
