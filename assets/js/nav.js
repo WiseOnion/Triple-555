@@ -79,8 +79,7 @@
     });
   });
 
-  // Scroll-reveal: .fade-in items trigger individually.
-  // .timeline container triggers all children at once so CSS stagger plays cleanly.
+  // Scroll-reveal observer for .fade-in elements.
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -90,22 +89,7 @@
     });
   }, { threshold: 0 });
 
-  var timelineObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.timeline-item').forEach(function (item) {
-          item.classList.add('visible');
-        });
-        timelineObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0 });
-
   document.querySelectorAll('.fade-in').forEach(function (el) {
     observer.observe(el);
-  });
-
-  document.querySelectorAll('.timeline').forEach(function (el) {
-    timelineObserver.observe(el);
   });
 }());
