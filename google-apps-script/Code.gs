@@ -2,7 +2,7 @@
  * Triple Nickle 555th PIA - Form Handler
  *
  * Handles submissions from the Contact form and the Tribute form on
- * triplenickle555.org. Each submission is appended to its own sheet
+ * www.555ftbraggnc.org. Each submission is appended to its own sheet
  * tab in this spreadsheet and emailed to the chapter inbox as a
  * branded HTML email (with a plain-text fallback for clients that
  * strip HTML).
@@ -21,7 +21,7 @@
  */
 
 const NOTIFY_EMAIL = 'ftbragg555pia@gmail.com';
-const SITE_URL = 'https://triplenickle555.org';
+const SITE_URL = 'https://www.555ftbraggnc.org';
 
 const SHEET_NAMES = {
   contact: 'Contact Submissions',
@@ -124,7 +124,7 @@ function handleContact(data) {
   const html = buildEmailHtml({
     kind: 'Contact Form Submission',
     heading: 'New Message',
-    intro: 'A visitor submitted the contact form on triplenickle555.org. Reply directly to this email to respond.',
+    intro: 'A visitor submitted the contact form on www.555ftbraggnc.org. Reply directly to this email to respond.',
     fields: fields,
     messageLabel: 'Message',
     messageValue: data.message,
@@ -133,7 +133,7 @@ function handleContact(data) {
   });
 
   const text =
-    'New contact form submission from triplenickle555.org\n\n' +
+    'New contact form submission from www.555ftbraggnc.org\n\n' +
     'Name: ' + data.name + '\n' +
     'Email: ' + data.email + '\n' +
     'Phone: ' + (data.phone || '(not provided)') + '\n' +
@@ -178,7 +178,7 @@ function handleTribute(data) {
   });
 
   const text =
-    'New tribute submission from triplenickle555.org\n\n' +
+    'New tribute submission from www.555ftbraggnc.org\n\n' +
     'Veteran: ' + data.veteranName + '\n' +
     'Rank / Unit: ' + (data.rank || '(not provided)') + '\n' +
     'Year Born: ' + (data.yearBorn || '(not provided)') + '\n' +
@@ -280,7 +280,7 @@ function buildEmailHtml(opts) {
 
           '<tr><td style="padding:28px 36px 32px;border-top:1px solid rgba(12,28,43,0.08);margin-top:12px;">' +
             '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>' +
-              '<td style="font-family:' + sans + ';font-size:11px;letter-spacing:0.05em;color:' + dim + ';">Sent automatically from the form at <a href="' + SITE_URL + '" style="color:' + navy + ';text-decoration:none;">triplenickle555.org</a></td>' +
+              '<td style="font-family:' + sans + ';font-size:11px;letter-spacing:0.05em;color:' + dim + ';">Sent automatically from the form at <a href="' + SITE_URL + '" style="color:' + navy + ';text-decoration:none;">www.555ftbraggnc.org</a></td>' +
             '</tr></table>' +
           '</td></tr>' +
 

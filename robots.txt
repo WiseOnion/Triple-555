@@ -4,4 +4,4 @@ Allow: /
 Disallow: /archive/
 Disallow: /docs/
 
-Sitemap: https://triplenickle555.org/sitemap.xml
+Sitemap: https://www.555ftbraggnc.org/sitemap.xml
