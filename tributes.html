@@ -121,19 +121,47 @@
     .submit { background:var(--off-white); padding:6rem 2rem; }
     .submit-inner { max-width:720px; margin:0 auto; }
     .submit-intro { font-size:0.92rem; color:#666; line-height:1.8; margin:1rem 0 2.5rem; }
-    .tribute-form { display:grid; gap:1.25rem; }
+    .tribute-form { display:grid; gap:1.25rem; background:#fff; padding:2.75rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); border-top:3px solid var(--gold); border-radius:2px; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
     .form-group { display:flex; flex-direction:column; gap:0.5rem; }
-    .form-group label { font-family:var(--font-sans); font-size:0.65rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); }
+    .form-group label { font-family:var(--font-sans); font-size:0.65rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); display:flex; align-items:center; gap:0.4rem; }
+    .form-group label .opt { text-transform:none; letter-spacing:0; font-weight:400; color:#b3b3b3; font-size:0.68rem; }
     .form-group input, .form-group select, .form-group textarea {
       font-family:var(--font-body); font-size:0.9rem; color:var(--charcoal);
-      background:#fff; border:1px solid rgba(12,28,43,0.2); border-radius:2px;
-      padding:0.75rem 1rem; outline:none; transition:border-color 0.2s;
+      background:var(--off-white); border:1.5px solid rgba(12,28,43,0.15); border-radius:3px;
+      padding:0.85rem 1.1rem; outline:none; transition:border-color 0.2s, box-shadow 0.2s, background 0.2s;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
+    .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:rgba(12,28,43,0.25); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); background:#fff; box-shadow:0 0 0 3px rgba(201,168,76,0.15); }
     .form-group textarea { min-height:140px; resize:vertical; }
     .form-note { font-size:0.8rem; color:#999; line-height:1.6; }
-    @media(max-width:600px) { .form-row { grid-template-columns:1fr; } }
+    @media(max-width:600px) { .form-row { grid-template-columns:1fr; } .tribute-form { padding:2rem 1.5rem; } }
+
+    .tribute-form .btn { display:inline-flex; align-items:center; gap:0.6rem; }
+    .tribute-form button:disabled { opacity:0.75; cursor:not-allowed; }
+    .tribute-form[data-state="loading"] button::after {
+      content:''; width:14px; height:14px; border:2px solid rgba(255,255,255,0.4); border-top-color:var(--navy);
+      border-radius:50%; animation:spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .form-status { margin-top:0.5rem; padding:0.9rem 1.1rem; border-radius:3px; font-size:0.85rem; line-height:1.5; animation:fadeInUp 0.35s ease; }
+    .form-status[hidden] { display:none; }
+    .form-status-success { background:rgba(76,141,90,0.1); border:1px solid rgba(76,141,90,0.3); color:#2e6b3e; }
+    .form-status-error { background:rgba(200,92,74,0.1); border:1px solid rgba(200,92,74,0.3); color:#a3392a; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+    /* SUCCESS PANEL (replaces form after send) */
+    .form-success-panel {
+      background:#fff; padding:3.5rem 2.5rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); border-top:3px solid var(--gold); border-radius:2px;
+      text-align:center; animation:fadeInUp 0.4s ease;
+    }
+    .form-success-icon {
+      width:56px; height:56px; margin:0 auto 1.5rem; border-radius:50%; background:rgba(76,141,90,0.12);
+      border:1px solid rgba(76,141,90,0.3); display:flex; align-items:center; justify-content:center; color:#2e6b3e;
+    }
+    .form-success-icon svg { width:26px; height:26px; }
+    .form-success-title { font-family:var(--font-serif); font-weight:700; font-size:1.6rem; color:var(--navy); margin-bottom:0.75rem; }
+    .form-success-text { font-size:0.92rem; color:#777; line-height:1.75; max-width:38ch; margin:0 auto; }
 
     /* CHARTER MEMBERS */
     .charter { background:var(--navy); padding:6rem 2rem; }
@@ -307,7 +335,7 @@
         <div class="roll-card fade-in">
           <div class="roll-card-top">
             <div class="roll-name">1st Sgt. Walter Morris</div>
-            <div class="roll-dates">1919 – 2012</div>
+            <div class="roll-dates">1919â€“2012</div>
           </div>
           <div class="roll-rank">555th PIB, First Sergeant</div>
           <p>One of the founders of the Triple Nickle spirit. His words, <em>"All blood runs red"</em>, remain the chapter's guiding creed.</p>
@@ -331,19 +359,23 @@
         <p class="submit-intro">If you have a tribute to share, for a Triple Nickle veteran, a chapter member, or a loved one connected to the 555th, fill out the form below. A chapter officer will review your submission and reach out before it's added to this page. You may also call us at <strong>(910) 703-3696</strong> or email <strong>info@555thpia.org</strong>.</p>
       </div>
       <form class="tribute-form fade-in" id="tributeForm">
+        <div class="hp-field" aria-hidden="true">
+          <label for="tribute-website">Website</label>
+          <input type="text" id="tribute-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row">
           <div class="form-group">
             <label for="veteranName">Veteran's Full Name *</label>
             <input type="text" id="veteranName" name="veteranName" required placeholder="e.g., Sgt. John Doe">
           </div>
           <div class="form-group">
-            <label for="rank">Rank / Unit</label>
+            <label for="rank">Rank / Unit <span class="opt">(optional)</span></label>
             <input type="text" id="rank" name="rank" placeholder="e.g., Staff Sgt., 555th PIB">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="yearBorn">Year Born</label>
+            <label for="yearBorn">Year Born <span class="opt">(optional)</span></label>
             <input type="text" id="yearBorn" name="yearBorn" placeholder="e.g., 1922">
           </div>
           <div class="form-group">
@@ -353,7 +385,7 @@
         </div>
         <div class="form-group">
           <label for="tribute">Tribute / Remembrance *</label>
-          <textarea id="tribute" name="tribute" required placeholder="Share a memory, service record, or brief biography..."></textarea>
+          <textarea id="tribute" name="tribute" maxlength="2000" required placeholder="Share a memory, service record, or brief biography..."></textarea>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -366,7 +398,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="relationship">Your Relationship to the Veteran</label>
+          <label for="relationship">Your Relationship to the Veteran <span class="opt">(optional)</span></label>
           <input type="text" id="relationship" name="relationship" placeholder="e.g., son, fellow chapter member, neighbor">
         </div>
         <p class="form-note">* Required fields. Submissions are reviewed by chapter officers before being posted. Photos and additional documentation can be sent to <strong>info@555thpia.org</strong> after submission.</p>
@@ -438,11 +470,8 @@
     </div>
   </footer>
 
-  <a href="#" id="backToTop" aria-label="Back to top">&#8593;</a>  <script>
-    document.getElementById('tributeForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.innerHTML = '<div style="text-align:center;padding:3rem 2rem;"><div style="font-family:var(--font-serif);font-size:2rem;color:var(--navy);margin-bottom:1rem;">Thank you.</div><p style="color:#666;font-size:0.9rem;line-height:1.8;">Your tribute submission has been received. A chapter officer will review it and reach out to you within a few days.<br><br>In the meantime, you can also call us at <strong>(910) 703-3696</strong>.</p></div>';
-  </script>
+  <a href="#" id="backToTop" aria-label="Back to top">&#8593;</a>
   <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>

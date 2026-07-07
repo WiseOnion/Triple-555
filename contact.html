@@ -86,20 +86,51 @@
     .social-link svg { width:14px; height:14px; fill:currentColor; }
 
     /* FORM SIDE */
-    .form-wrap { background:#fff; padding:2.5rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); }
+    .form-wrap { background:#fff; padding:2.5rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); border-top:3px solid var(--gold); position:relative; }
     .form-wrap h3 { font-family:var(--font-serif); font-weight:700; font-size:1.5rem; color:var(--navy); margin-bottom:0.5rem; }
     .form-wrap > p { font-size:0.88rem; color:#999; margin-bottom:2rem; }
-    .form-group { margin-bottom:1.5rem; display:flex; flex-direction:column; }
-    .form-group label { font-family:var(--font-sans); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); margin-bottom:0.5rem; }
+    .form-group { margin-bottom:1.5rem; display:flex; flex-direction:column; position:relative; }
+    .form-group label { font-family:var(--font-sans); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+    .form-group label .opt { text-transform:none; letter-spacing:0; font-weight:400; color:#b3b3b3; font-size:0.7rem; }
     .form-group input, .form-group select, .form-group textarea {
-      background:var(--off-white); border:1px solid rgba(12,28,43,0.12); border-radius:2px;
-      font-family:var(--font-body); font-size:0.9rem; color:var(--charcoal);
-      padding:0.85rem 1rem; transition:border-color 0.2s; outline:none; width:100%;
+      background:var(--off-white); border:1.5px solid rgba(12,28,43,0.12); border-radius:3px;
+      font-family:var(--font-body); font-size:0.92rem; color:var(--charcoal);
+      padding:0.9rem 1.1rem; transition:border-color 0.2s, box-shadow 0.2s, background 0.2s; outline:none; width:100%;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
+    .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:rgba(12,28,43,0.22); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); background:#fff; box-shadow:0 0 0 3px rgba(201,168,76,0.15); }
+    .form-group input:invalid:not(:placeholder-shown), .form-group textarea:invalid:not(:placeholder-shown) { border-color:#c85c4a; }
+    .form-group select { cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C9A84C' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1.1rem center; padding-right:2.5rem; }
     .form-group textarea { resize:vertical; min-height:130px; }
-    .form-btn { width:100%; font-size:0.8rem; padding:1.1rem; }
+    .form-btn { width:100%; font-size:0.8rem; padding:1.1rem; position:relative; display:flex; align-items:center; justify-content:center; gap:0.6rem; }
+    .form-btn:disabled { opacity:0.75; cursor:not-allowed; }
+    form[data-state="loading"] .form-btn::after {
+      content:''; width:14px; height:14px; border:2px solid rgba(12,28,43,0.3); border-top-color:var(--navy);
+      border-radius:50%; animation:spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
     .form-note { font-size:0.75rem; color:#aaa; margin-top:0.75rem; text-align:center; }
+    .hp-field { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden; }
+
+    /* FORM STATUS MESSAGE */
+    .form-status { margin-top:1.25rem; padding:0.9rem 1.1rem; border-radius:3px; font-size:0.85rem; line-height:1.5; display:flex; align-items:flex-start; gap:0.6rem; animation:fadeInUp 0.35s ease; }
+    .form-status[hidden] { display:none; }
+    .form-status-success { background:rgba(76,141,90,0.1); border:1px solid rgba(76,141,90,0.3); color:#2e6b3e; }
+    .form-status-error { background:rgba(200,92,74,0.1); border:1px solid rgba(200,92,74,0.3); color:#a3392a; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+    /* SUCCESS PANEL (replaces form after send) */
+    .form-success-panel {
+      background:#fff; padding:3.5rem 2.5rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); border-top:3px solid var(--gold);
+      text-align:center; animation:fadeInUp 0.4s ease;
+    }
+    .form-success-icon {
+      width:56px; height:56px; margin:0 auto 1.5rem; border-radius:50%; background:rgba(76,141,90,0.12);
+      border:1px solid rgba(76,141,90,0.3); display:flex; align-items:center; justify-content:center; color:#2e6b3e;
+    }
+    .form-success-icon svg { width:26px; height:26px; }
+    .form-success-title { font-family:var(--font-serif); font-weight:700; font-size:1.6rem; color:var(--navy); margin-bottom:0.75rem; }
+    .form-success-text { font-size:0.92rem; color:#777; line-height:1.75; max-width:36ch; margin:0 auto; }
 
     /* MAP + MEETINGS */
     .map-section { background:var(--navy); padding:6rem 2rem; }
@@ -267,6 +298,10 @@
           <h3>Send a Message</h3>
           <p>Use the form below for general inquiries, membership interest, or event questions.</p>
           <form action="#" method="post">
+            <div class="hp-field" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-group">
               <label for="contact-name">Your Name *</label>
               <input type="text" id="contact-name" name="name" placeholder="Full Name" required>
@@ -276,11 +311,11 @@
               <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
             </div>
             <div class="form-group">
-              <label for="contact-phone">Phone Number</label>
+              <label for="contact-phone">Phone Number <span class="opt">(optional)</span></label>
               <input type="tel" id="contact-phone" name="phone" placeholder="(555) 123-4567">
             </div>
             <div class="form-group">
-              <label for="contact-subject">Subject</label>
+              <label for="contact-subject">Subject <span class="opt">(optional)</span></label>
               <select id="contact-subject" name="subject">
                 <option value="">Select a topic</option>
                 <option value="membership">Membership Inquiry</option>
@@ -293,7 +328,7 @@
             </div>
             <div class="form-group">
               <label for="contact-message">Message *</label>
-              <textarea id="contact-message" name="message" placeholder="How can we help you?" required></textarea>
+              <textarea id="contact-message" name="message" placeholder="How can we help you?" maxlength="2000" required></textarea>
             </div>
             <button type="submit" class="btn btn-gold form-btn">Send Message</button>
             <p class="form-note">By submitting, you are providing your data to the Samuel Council Chapter 555th PIA who may contact you.</p>
@@ -315,7 +350,7 @@
           </div>
           <div class="meeting-detail-text">
             <strong>When</strong>
-            <p>Every 4th Saturday, 9:00 AM – 10:30 AM<br><em style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Exceptions: May, September &amp; November</em></p>
+            <p>Every 4th Saturday, 9:00 AMâ€“10:30 AM<br><em style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Exceptions: May, September &amp; November</em></p>
           </div>
         </div>
         <div class="meeting-detail">
@@ -391,5 +426,6 @@
 
   <a href="#" id="backToTop">&#8593;</a>
   <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>
