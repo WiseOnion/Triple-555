@@ -12,10 +12,12 @@ module.exports = async (request, response) => {
   }
 
   try {
+    const body = typeof request.body === 'string' ? request.body : JSON.stringify(request.body);
+
     const upstream = await fetch(SCRIPT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(request.body)
+      body: body
     });
 
     const raw = await upstream.text();
