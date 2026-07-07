@@ -61,15 +61,25 @@ function doPost(e) {
       return jsonResponse({ result: 'success' });
     }
 
-    checkRateLimit(getClientKey(data));
-
     const formType = data.formType;
+    let clean;
     if (formType === 'contact') {
-      handleContact(sanitize(data, CONTACT_REQUIRED));
+      clean = sanitize(data, CONTACT_REQUIRED);
     } else if (formType === 'tribute') {
-      handleTribute(sanitize(data, TRIBUTE_REQUIRED));
+      clean = sanitize(data, TRIBUTE_REQUIRED);
     } else {
       throw new Error('Unknown form type: ' + formType);
+    }
+
+    // Validate before consuming the rate-limit slot, so a rejected
+    // submission (missing field, bad formType) never blocks the
+    // same sender's very next, corrected attempt for 30 seconds.
+    checkRateLimit(getClientKey(clean));
+
+    if (formType === 'contact') {
+      handleContact(clean);
+    } else {
+      handleTribute(clean);
     }
 
     return jsonResponse({ result: 'success' });
