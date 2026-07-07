@@ -135,6 +135,7 @@
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); background:#fff; box-shadow:0 0 0 3px rgba(201,168,76,0.15); }
     .form-group textarea { min-height:140px; resize:vertical; }
     .form-note { font-size:0.8rem; color:#999; line-height:1.6; }
+    .hp-field { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
     @media(max-width:600px) { .form-row { grid-template-columns:1fr; } .tribute-form { padding:2rem 1.5rem; } }
 
     .tribute-form .btn { display:inline-flex; align-items:center; gap:0.6rem; }
@@ -353,7 +354,7 @@
       <div class="fade-in">
         <div class="section-eyebrow">Add to the Memorial</div>
         <h2 class="section-title">Submit a Tribute</h2>
-        <p class="submit-intro">If you have a tribute to share, for a Triple Nickle veteran, a chapter member, or a loved one connected to the 555th, fill out the form below. A chapter officer will review your submission and reach out before it's added to this page. You may also call us at <strong>(910) 703-3696</strong> or email <strong>info@555thpia.org</strong>.</p>
+        <p class="submit-intro">If you have a tribute to share, for a Triple Nickle veteran, a chapter member, or a loved one connected to the 555th, fill out the form below. A chapter officer will review your submission and reach out before it's added to this page. You may also call us at <strong>(910) 703-3696</strong> or email <strong>ftbragg555pia@gmail.com</strong>.</p>
       </div>
       <form class="tribute-form fade-in" id="tributeForm">
         <div class="hp-field" aria-hidden="true">
@@ -398,7 +399,7 @@
           <label for="relationship">Your Relationship to the Veteran <span class="opt">(optional)</span></label>
           <input type="text" id="relationship" name="relationship" placeholder="e.g., son, fellow chapter member, neighbor">
         </div>
-        <p class="form-note">* Required fields. Submissions are reviewed by chapter officers before being posted. Photos and additional documentation can be sent to <strong>info@555thpia.org</strong> after submission.</p>
+        <p class="form-note">* Required fields. Submissions are reviewed by chapter officers before being posted. Photos and additional documentation can be sent to <strong>ftbragg555pia@gmail.com</strong> after submission.</p>
         <div>
           <button type="submit" class="btn btn-gold">Submit Tribute</button>
         </div>

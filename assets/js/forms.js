@@ -4,7 +4,7 @@
  * Replace SCRIPT_URL with the deployment URL from Apps Script.
  */
 (function () {
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6_S7flcEDnuC2J-DQTodt1iE9Y1Sl_6KQHGpgnl4jdCQpnZpGAb_DQPp8F52OVGDl/exec';
+  const SCRIPT_URL = '/api/submit-form';
 
   function setState(form, state) {
     form.setAttribute('data-state', state);
