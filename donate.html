@@ -69,19 +69,27 @@
 
     /* WHY GIVE */
     .why-give { padding:6rem 2rem; background:var(--cream); }
-    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; margin-top:3rem; }
-    .why-text p { font-size:0.95rem; line-height:1.85; color:#555; margin-bottom:1.25rem; }
+    .why-grid { max-width:760px; margin:0 auto; text-align:center; }
+    .why-text .section-eyebrow, .why-text .section-title { text-align:center; }
+    .why-text .section-eyebrow::before, .why-text .section-eyebrow::after { content:''; display:inline-block; width:24px; height:1px; background:var(--gold); vertical-align:middle; margin:0 0.6rem; }
+    .why-text p { font-size:1rem; line-height:1.9; color:#555; margin:1.4rem auto; max-width:640px; }
     .why-text p strong { color:var(--navy); }
-    .why-stats { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
-    .why-stat { background:var(--navy); padding:2rem 1.75rem; }
-    .why-stat strong { display:block; font-family:var(--font-serif); font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1; margin-bottom:0.4rem; }
-    .why-stat span { font-family:var(--font-sans); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
+    .why-stats {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      max-width:1000px; margin:3.5rem auto 0;
+      box-shadow:0 20px 60px rgba(12,28,43,0.12);
+    }
+    .why-stat { background:var(--navy); padding:2.25rem 1.5rem; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
+    .why-stat:last-child { border-right:none; }
+    .why-stat:nth-child(odd) { background:var(--navy2); }
+    .why-stat strong { display:block; font-family:var(--font-serif); font-size:2.6rem; font-weight:700; color:var(--gold); line-height:1; margin-bottom:0.5rem; }
+    .why-stat span { font-family:var(--font-sans); font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6); }
 
     /* TIERS */
     .tiers { padding:6rem 2rem; background:var(--off-white); }
-    .tiers-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:3.5rem; }
-    .tier { background:var(--navy); padding:2.5rem 1.75rem; position:relative; }
-    .tier.featured { background:var(--gold); }
+    .tiers-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.75rem; margin-top:3.5rem; align-items:stretch; }
+    .tier { background:var(--navy); padding:2.5rem 1.75rem; position:relative; border-radius:4px; box-shadow:0 12px 30px rgba(12,28,43,0.12); }
+    .tier.featured { background:var(--gold); box-shadow:0 16px 36px rgba(201,168,76,0.3); transform:scale(1.05); }
     .tier-label { font-family:var(--font-sans); font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
     .tier.featured .tier-label { color:var(--navy); }
     .tier h3 { font-family:var(--font-serif); font-size:1.6rem; font-weight:700; color:#fff; margin-bottom:0.5rem; }
@@ -95,9 +103,20 @@
     .tier.featured li::before { background:var(--navy); }
 
     /* FORM SECTION */
-    .donate-form-section { padding:6rem 2rem; background:var(--cream); }
-    .form-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:4rem; margin-top:3rem; align-items:start; }
-    .form-wrap { background:#fff; padding:2.5rem; box-shadow:0 4px 40px rgba(0,0,0,0.07); }
+    .donate-form-section { padding:5rem 2rem 6rem; background:var(--navy); position:relative; overflow:hidden; }
+    .donate-form-section::before { content:''; position:absolute; inset:0; background:url('images/historical-photos/triple-nickle-7.webp') center/cover; opacity:0.08; filter:grayscale(100%); }
+    .donate-form-section .container { position:relative; z-index:1; }
+    .donate-form-section .section-eyebrow, .donate-form-section .section-title { text-align:center; }
+    .donate-form-section .section-title { color:#fff; }
+    .donate-form-section .section-eyebrow::before, .donate-form-section .section-eyebrow::after { content:''; display:inline-block; width:24px; height:1px; background:var(--gold); vertical-align:middle; margin:0 0.6rem; }
+    .form-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:4rem; margin-top:3rem; align-items:start; max-width:900px; margin-left:auto; margin-right:auto; }
+    .form-wrap { background:#fff; padding:2.5rem; box-shadow:0 20px 60px rgba(0,0,0,0.3); border-top:3px solid var(--gold); border-radius:4px; }
+    .form-aside { background:rgba(255,255,255,0.05); padding:2.5rem; border-radius:4px; border:1px solid rgba(255,255,255,0.08); }
+    .form-aside h3 { color:#fff !important; }
+    .form-aside p { color:rgba(255,255,255,0.6) !important; }
+    .form-aside .ways-list li { border-bottom-color:rgba(255,255,255,0.08) !important; }
+    .form-aside .ways-list li strong { color:var(--gold) !important; }
+    .form-aside .ways-list li p { color:rgba(255,255,255,0.5) !important; }
     .form-group { margin-bottom:1.5rem; display:flex; flex-direction:column; }
     .form-group label { font-family:var(--font-sans); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); margin-bottom:0.5rem; }
     .form-group input, .form-group select, .form-group textarea {
@@ -107,6 +126,27 @@
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
     .form-group textarea { resize:vertical; min-height:100px; }
+    #donation-amount {
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23C9A84C' d='M4 6l4 4 4-4z'/%3E%3C/svg%3E") no-repeat right 1.1rem center;
+      background-size: 13px;
+      border:1.5px solid rgba(12,28,43,0.14);
+      border-radius:6px;
+      font-family:var(--font-sans); font-weight:700; font-size:1.15rem; letter-spacing:0.01em;
+      color:var(--navy);
+      padding:1.05rem 3rem 1.05rem 1.25rem;
+      cursor:pointer;
+      box-shadow:0 2px 10px rgba(12,28,43,0.05);
+      transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    #donation-amount:hover {
+      border-color:var(--gold);
+      box-shadow:0 4px 16px rgba(201,168,76,0.18);
+    }
+    #donation-amount:focus {
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(201,168,76,0.18);
+    }
     .form-divider { height:1px; background:rgba(12,28,43,0.08); margin:1.5rem 0; }
     .form-btn { width:100%; font-size:0.8rem; padding:1.1rem; }
     .form-disclaimer { font-size:0.75rem; color:#999; margin-top:0.75rem; text-align:center; }
@@ -118,11 +158,13 @@
     .ways-list li p { font-size:0.85rem; color:#777; margin:0; }
 
     /* TESTIMONIALS */
-    .testimonials { background:var(--navy); padding:6rem 2rem; }
-    .testimonials .section-title { color:#fff; text-align:center; margin-bottom:3.5rem; }
-    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:1100px; margin:0 auto; }
-    .testi-card { background:rgba(255,255,255,0.04); padding:2.5rem; }
-    .testi-card blockquote { font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:1.25rem; }
+    .testimonials { background:var(--cream); padding:6rem 2rem; }
+    .testimonials .section-title { color:var(--navy); text-align:center; margin-bottom:4rem; }
+    .testi-stack { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:2.5rem; }
+    .testi-card { background:#fff; padding:2.75rem 3rem; box-shadow:0 10px 40px rgba(12,28,43,0.06); border-left:3px solid var(--gold); border-radius:2px; }
+    .testi-card:nth-child(2) { margin-left:auto; max-width:90%; }
+    .testi-card:nth-child(3) { margin-right:auto; max-width:90%; }
+    .testi-card blockquote { font-family:var(--font-serif); font-style:italic; font-size:1.3rem; color:var(--navy); line-height:1.6; margin-bottom:1.25rem; }
     .testi-card cite { font-family:var(--font-sans); font-style:normal; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); }
 
     footer { background:#060e15; color:rgba(255,255,255,0.55); padding:4rem 2rem 2rem; }
@@ -144,17 +186,16 @@
     #backToTop:hover { transform:translateY(-3px); }
 
     @media(max-width:900px) {
-      .why-grid { grid-template-columns:1fr; gap:3rem; }
       .tiers-grid { grid-template-columns:repeat(2,1fr); }
+      .tier.featured { transform:none; }
       .form-grid { grid-template-columns:1fr; }
-      .testi-grid { grid-template-columns:1fr; }
       .footer-inner { grid-template-columns:1fr 1fr; }
     }
     @media(max-width:600px) {
-      
       .tiers-grid { grid-template-columns:1fr; }
-      .why-stats { grid-template-columns:1fr 1fr; }
+      .why-stats { grid-template-columns:1fr 1fr; box-shadow:none; }
       .footer-inner { grid-template-columns:1fr; }
+      .testi-card:nth-child(2), .testi-card:nth-child(3) { max-width:100%; margin-left:0; margin-right:0; }
     }
   </style>
 
@@ -253,23 +294,23 @@
           <p>The Samuel Council Chapter keeps the Triple Nickles' legacy alive through education, scholarship funding, and community engagement. <strong>Every donation goes directly to those programs</strong>, no overhead waste, no corporate middlemen.</p>
           <p>Sgt. Joe Harris, one of the last surviving Triple Nickles, passed away on March 15, 2025, at age 108. The witnesses are leaving us. The work of preservation is now our responsibility.</p>
         </div>
-        <div class="why-stats fade-in">
-          <div class="why-stat">
-            <strong>48</strong>
-            <span>Scholarships awarded per year</span>
-          </div>
-          <div class="why-stat">
-            <strong>12</strong>
-            <span>Schools across Cumberland &amp; Harnett Counties</span>
-          </div>
-          <div class="why-stat">
-            <strong>$100K+</strong>
-            <span>In scholarships awarded to date</span>
-          </div>
-          <div class="why-stat">
-            <strong>1,000+</strong>
-            <span>Students reached through education programs</span>
-          </div>
+      </div>
+      <div class="why-stats fade-in">
+        <div class="why-stat">
+          <strong>48</strong>
+          <span>Scholarships awarded per year</span>
+        </div>
+        <div class="why-stat">
+          <strong>12</strong>
+          <span>Schools across Cumberland &amp; Harnett Counties</span>
+        </div>
+        <div class="why-stat">
+          <strong>$100K+</strong>
+          <span>In scholarships awarded to date</span>
+        </div>
+        <div class="why-stat">
+          <strong>1,000+</strong>
+          <span>Students reached through education programs</span>
         </div>
       </div>
     </div>
@@ -332,62 +373,51 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title fade-in">Stories of Impact</h2>
+      <div class="testi-stack">
+        <div class="testi-card fade-in">
+          <blockquote>"The scholarship from the Samuel Council Chapter opened doors I never thought possible. I'm now pursuing my degree in education and sharing the Triple Nickles' story with the next generation."</blockquote>
+          <cite>Maria Rodriguez &nbsp;·&nbsp; 2024 Scholarship Recipient</cite>
+        </div>
+        <div class="testi-card fade-in">
+          <blockquote>"The support programs gave me a lifeline when I needed it most. This organization truly understands what veterans face and provides real, compassionate assistance."</blockquote>
+          <cite>Sgt. James Thompson &nbsp;·&nbsp; U.S. Army Veteran</cite>
+        </div>
+        <div class="testi-card fade-in">
+          <blockquote>"The educational presentation at our school was transformative. My students said it was the most inspiring history lesson they had ever had."</blockquote>
+          <cite>Dr. Sarah Chen &nbsp;·&nbsp; High School History Teacher</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DONATION FORM -->
   <section class="donate-form-section" id="donate-form">
     <div class="container">
-      <div class="fade-in">
+      <div class="fade-in" style="text-align:center;">
         <div class="section-eyebrow">Give Now</div>
         <h2 class="section-title">Complete Your Donation</h2>
       </div>
       <div class="form-grid">
         <div class="form-wrap fade-in">
-          <form action="#" method="post">
-            <div class="form-group">
-              <label for="donation-amount">Select Amount *</label>
-              <select id="donation-amount" name="amount" required>
-                <option value="">Choose an amount</option>
-                <option value="25">$25</option>
-                <option value="50">$50</option>
-                <option value="100">$100</option>
-                <option value="250">$250</option>
-                <option value="500">$500</option>
-                <option value="1000">$1,000</option>
-                <option value="other">Custom Amount</option>
-              </select>
-              <input type="number" id="custom-amount" name="custom_amount" placeholder="Enter amount" min="1" style="display:none;margin-top:0.5rem;">
-            </div>
-            <div class="form-group">
-              <label for="donation-type">Donation Frequency *</label>
-              <select id="donation-type" name="type" required>
-                <option value="one-time">One-Time Gift</option>
-                <option value="monthly">Monthly (Sustaining)</option>
-                <option value="honor">Memorial Tribute</option>
-              </select>
-            </div>
-            <div class="form-group" id="honor-section" style="display:none;">
-              <label for="honor-name">Tribute Name</label>
-              <input type="text" id="honor-name" name="honor_name" placeholder="In honor/memory of...">
-            </div>
-            <div class="form-divider"></div>
-            <div class="form-group">
-              <label for="donor-name">Your Full Name *</label>
-              <input type="text" id="donor-name" name="name" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="donor-email">Email Address *</label>
-              <input type="email" id="donor-email" name="email" placeholder="your@email.com" required>
-            </div>
-            <div class="form-group">
-              <label for="donor-phone">Phone Number</label>
-              <input type="tel" id="donor-phone" name="phone" placeholder="(555) 123-4567">
-            </div>
-            <div class="form-group">
-              <label for="comments">Message or Special Instructions</label>
-              <textarea id="comments" name="comments" placeholder="Add a personal message..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold form-btn">Complete Donation</button>
-            <p class="form-disclaimer">All donations are tax-deductible. You will receive a receipt via email.</p>
-          </form>
+          <div class="form-group">
+            <label for="donation-amount">Select Amount *</label>
+            <select id="donation-amount" name="amount" required>
+              <option value="25">$25</option>
+              <option value="50">$50</option>
+              <option value="100" selected>$100</option>
+              <option value="250">$250</option>
+              <option value="500">$500</option>
+              <option value="1000">$1,000</option>
+              <option value="other">Custom Amount</option>
+            </select>
+            <input type="number" id="custom-amount" name="custom_amount" placeholder="Enter amount" min="1" style="display:none;margin-top:0.5rem;">
+          </div>
+          <div id="paypal-button-container"></div>
+          <p class="form-disclaimer">All donations are tax-deductible. You will receive a receipt via email.</p>
         </div>
         <div class="form-aside fade-in">
           <h3>Ways to Give</h3>
@@ -414,27 +444,6 @@
               <p>Samuel Council Chapter 555th PIA<br>P.O. Box 555, Fayetteville, NC 28302</p>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title fade-in">Stories of Impact</h2>
-      <div class="testi-grid">
-        <div class="testi-card fade-in">
-          <blockquote>"The scholarship from the Samuel Council Chapter opened doors I never thought possible. I'm now pursuing my degree in education and sharing the Triple Nickles' story with the next generation."</blockquote>
-          <cite>Maria Rodriguez &nbsp;·&nbsp; 2024 Scholarship Recipient</cite>
-        </div>
-        <div class="testi-card fade-in">
-          <blockquote>"The support programs gave me a lifeline when I needed it most. This organization truly understands what veterans face and provides real, compassionate assistance."</blockquote>
-          <cite>Sgt. James Thompson &nbsp;·&nbsp; U.S. Army Veteran</cite>
-        </div>
-        <div class="testi-card fade-in">
-          <blockquote>"The educational presentation at our school was transformative. My students said it was the most inspiring history lesson they had ever had."</blockquote>
-          <cite>Dr. Sarah Chen &nbsp;·&nbsp; High School History Teacher</cite>
         </div>
       </div>
     </div>
@@ -488,13 +497,28 @@
       if (this.value === 'other') { ca.style.display = 'block'; ca.required = true; ca.focus(); }
       else { ca.style.display = 'none'; ca.required = false; ca.value = ''; }
     });
-
-    document.getElementById('donation-type').addEventListener('change', function() {
-      var hs = document.getElementById('honor-section'), hn = document.getElementById('honor-name');
-      if (this.value === 'honor') { hs.style.display = 'flex'; hn.required = true; }
-      else { hs.style.display = 'none'; hn.required = false; hn.value = ''; }
-    });
   </script>
   <script src="assets/js/nav.js" defer></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AU-2kRWfT2EpNILoIc5GfJmgCAaTsOpTRUp8urgOhnntvuE3pDYFrRAzF-zz5hJQCuWIKIDbNSwBV7Fg&currency=USD"></script>
+  <script>
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        var amountSelect = document.getElementById('donation-amount');
+        var amount = amountSelect.value === 'other'
+          ? document.getElementById('custom-amount').value
+          : amountSelect.value;
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: amount }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! Your donation has been received.');
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
 </body>
 </html>
