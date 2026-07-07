@@ -59,13 +59,6 @@
     button.disabled = true;
     button.textContent = 'Sending...';
 
-    // Apps Script round trips can run several seconds past what feels
-    // instant, so reassure the sender it's still working rather than
-    // let the button sit on "Sending..." looking stalled or broken.
-    const stillWorkingTimer = setTimeout(function () {
-      button.textContent = 'Still sending...';
-    }, 5000);
-
     const honeypot = form.querySelector('input[name="website"]');
     const payload = Object.assign(
       { formType: formType, website: honeypot ? honeypot.value : '' },
@@ -93,12 +86,10 @@
         throw submissionError;
       }
 
-      clearTimeout(stillWorkingTimer);
       setState(form, 'success');
       button.textContent = 'Sent';
       showSuccessPanel(form);
     } catch (err) {
-      clearTimeout(stillWorkingTimer);
       const isRateLimit = /^RATE_LIMIT:/.test(err.message || '');
       const isTimeout = err.code === 'TIMEOUT';
       setState(form, 'error');
