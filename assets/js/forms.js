@@ -81,7 +81,9 @@
       }
 
       if (result && result.result !== 'success') {
-        throw new Error(result.message || 'Submission failed');
+        const submissionError = new Error(result.message || 'Submission failed');
+        submissionError.code = result.code;
+        throw submissionError;
       }
 
       setState(form, 'success');
@@ -89,12 +91,15 @@
       showSuccessPanel(form);
     } catch (err) {
       const isRateLimit = /^RATE_LIMIT:/.test(err.message || '');
+      const isTimeout = err.code === 'TIMEOUT';
       setState(form, 'error');
       showMessage(
         form,
         'error',
         isRateLimit
           ? 'Looks like this was just submitted. If you already saw a confirmation, no need to resend, we received it.'
+          : isTimeout
+          ? 'The form handler is responding slowly. Your message may still have gone through, please wait a moment before resubmitting, or email us directly at ftbragg555pia@gmail.com.'
           : 'Something went wrong. Please try again, or email us directly at ftbragg555pia@gmail.com.'
       );
       button.disabled = false;

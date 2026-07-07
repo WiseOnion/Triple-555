@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/submit-form.js": { "maxDuration": 30 }
+  },
   "headers": [
     {
       "source": "/(.*)",
