@@ -64,7 +64,6 @@
     // let the button sit on "Sending..." looking stalled or broken.
     const stillWorkingTimer = setTimeout(function () {
       button.textContent = 'Still sending...';
-      showMessage(form, 'pending', 'This is taking a little longer than usual. Your message is still on its way, no need to resubmit.');
     }, 5000);
 
     const honeypot = form.querySelector('input[name="website"]');
