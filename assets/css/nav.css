@@ -274,7 +274,7 @@
   .nav-links a:hover::before,
   .nav-links a.active::before { transform: scaleY(1); }
 
-  /* DONATE — gold row, pinned toward bottom */
+  /* DONATE, gold row, pinned toward bottom */
   .nav-links > li:last-child {
     border-bottom: none;
     margin-top: auto;
