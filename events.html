@@ -11,26 +11,26 @@
   <link rel="manifest" href="/favicon_io/site.webmanifest">
   <meta name="theme-color" content="#0C1C2B">
   <title>Events &amp; Fundraising, Samuel Council Chapter 555th PIA</title>
-  <meta name="description" content="Join the Samuel Council Chapter at our annual fundraising extravaganzas. Events that celebrate Triple Nickle heritage and support our scholarship mission.">
+  <meta name="description" content="Join the Samuel Council Chapter for the Western Extravaganza on August 22, 2026 at the Hope Mills Shrine Club. All proceeds benefit our scholarship program.">
 
   <!-- SEO -->
   <link rel="canonical" href="https://www.555ftbraggnc.org/events">
-  <meta name="keywords" content="Triple Nickle events, 555th PIA fundraiser, Red White Extravaganza, Black White Extravaganza, Western Extravaganza, Fayetteville NC gala, 555th PIA fundraising, Samuel Council Chapter events, veterans nonprofit events">
+  <meta name="keywords" content="Triple Nickle events, 555th PIA fundraiser, Western Extravaganza, Vette's Unlimited Corvette Club, Hope Mills Shrine Club, Fayetteville NC gala, 555th PIA fundraising, Samuel Council Chapter events, veterans nonprofit events">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Samuel Council Chapter 555th PIA">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.555ftbraggnc.org/events">
   <meta property="og:title" content="Events &amp; Fundraising, Samuel Council Chapter 555th PIA">
-  <meta property="og:description" content="Join the Samuel Council Chapter at our annual fundraising extravaganzas. Events that celebrate Triple Nickle heritage and support our scholarship mission.">
-  <meta property="og:image" content="https://www.555ftbraggnc.org/images/events/Annual_Red_&_White_Extravaganza.webp">
+  <meta property="og:description" content="Join the Samuel Council Chapter for the Western Extravaganza on August 22, 2026 at the Hope Mills Shrine Club. All proceeds benefit our scholarship program.">
+  <meta property="og:image" content="https://www.555ftbraggnc.org/images/events/2026_Western_Extravaganza.jpg">
   <meta property="og:site_name" content="Triple Nickle, 555th PIA Samuel Council Chapter">
   <meta property="og:locale" content="en_US">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Events &amp; Fundraising, Samuel Council Chapter 555th PIA">
-  <meta name="twitter:description" content="Join the Samuel Council Chapter at our annual fundraising extravaganzas. Events that celebrate Triple Nickle heritage and support our scholarship mission.">
-  <meta name="twitter:image" content="https://www.555ftbraggnc.org/images/events/Annual_Red_&_White_Extravaganza.webp">
+  <meta name="twitter:description" content="Join the Samuel Council Chapter for the Western Extravaganza on August 22, 2026 at the Hope Mills Shrine Club. All proceeds benefit our scholarship program.">
+  <meta name="twitter:image" content="https://www.555ftbraggnc.org/images/events/2026_Western_Extravaganza.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
     body { font-family: var(--font-body); color: var(--charcoal); background: var(--cream); overflow-x: hidden; }
 
     .page-hero { background:var(--navy); padding:9rem 2rem 5rem; text-align:center; position:relative; overflow:hidden; }
-    .page-hero::before { content:''; position:absolute; inset:0; background:url('images/events/Annual_Red_&_White_Extravaganza.webp') center/cover; opacity:0.15; filter:grayscale(60%); }
+    .page-hero::before { content:''; position:absolute; inset:0; background:url('images/events/2026_Western_Extravaganza.jpg') center 20%/cover; opacity:0.18; filter:grayscale(50%); }
     .page-hero-inner { position:relative; z-index:1; }
     .page-eyebrow { font-family:var(--font-sans); font-size:0.68rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
     .page-eyebrow::before, .page-eyebrow::after { content:''; display:inline-block; width:32px; height:1px; background:var(--gold); vertical-align:middle; margin:0 0.6rem; }
@@ -80,6 +80,8 @@
     .event-feature.reverse > * { direction:ltr; }
     .event-feature-img { height:420px; overflow:hidden; }
     .event-feature-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+    .event-feature-img.upcoming { height:auto; }
+    .event-feature-img.upcoming img { height:auto; object-fit:contain; background:var(--navy); }
     .event-feature:hover .event-feature-img img { transform:scale(1.04); }
     .event-feature-body { padding:3.5rem; display:flex; flex-direction:column; justify-content:center; }
     .event-tag { font-family:var(--font-sans); font-size:0.62rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
@@ -87,6 +89,28 @@
     .event-feature-body p { font-size:0.9rem; line-height:1.8; color:rgba(255,255,255,0.7); margin-bottom:1.75rem; }
     .event-dress { display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-sans); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:1.75rem; }
     .event-dress-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+    /* FEATURED UPCOMING EVENT */
+    .event-feature-img.upcoming { position:relative; }
+    .featured-badge { position:absolute; top:1.25rem; left:1.25rem; z-index:2; background:var(--gold); color:var(--navy); font-family:var(--font-sans); font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; padding:0.5rem 1rem; border-radius:2px; }
+    .event-meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.5rem; margin:0 0 1.75rem; padding:1.5rem; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:2px; }
+    .event-meta-item { display:flex; flex-direction:column; gap:0.25rem; }
+    .event-meta-label { font-family:var(--font-sans); font-size:0.6rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+    .event-meta-value { font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.5; }
+    .event-perks { list-style:none; margin-bottom:1.75rem; }
+    .event-perks li { font-size:0.85rem; color:rgba(255,255,255,0.7); padding:0.4rem 0; display:flex; align-items:center; gap:0.6rem; }
+    .event-perks li::before { content:'★'; color:var(--gold); font-size:0.7rem; flex-shrink:0; }
+
+    /* PAST EVENTS ARCHIVE */
+    .past-events { padding:5rem 2rem 6rem; background:var(--off-white); }
+    .past-events-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+    .past-event-card { background:var(--cream); border:1px solid rgba(12,28,43,0.08); overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; }
+    .past-event-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(12,28,43,0.12); }
+    .past-event-img { height:200px; overflow:hidden; }
+    .past-event-img img { width:100%; height:100%; object-fit:cover; filter:grayscale(30%); }
+    .past-event-body { padding:1.75rem; }
+    .past-event-body h3 { font-family:var(--font-serif); font-weight:700; font-size:1.3rem; color:var(--navy); margin-bottom:0.5rem; }
+    .past-event-body p { font-size:0.85rem; line-height:1.7; color:#666; }
 
     /* SUPPORT SECTION */
     .support { background:var(--off-white); padding:6rem 2rem; }
@@ -128,13 +152,22 @@
       .event-feature, .event-feature.reverse { grid-template-columns:1fr; direction:ltr; }
       .event-feature-img { height:280px; }
       .support-grid { grid-template-columns:1fr; }
+      .past-events-grid { grid-template-columns:1fr; }
       .footer-inner { grid-template-columns:1fr 1fr; }
     }
     @media(max-width:600px) {
-      
       .event-feature-body { padding:2rem; }
+      .event-meta-grid { grid-template-columns:1fr; }
       .footer-inner { grid-template-columns:1fr; }
     }
+
+    /* IMAGE LIGHTBOX */
+    .event-feature-img img, .past-event-img img { cursor:zoom-in; }
+    .lightbox { position:fixed; inset:0; z-index:1000; background:rgba(6,14,21,0.92); display:flex; align-items:center; justify-content:center; padding:3rem 2rem; opacity:0; visibility:hidden; transition:opacity 0.25s; }
+    .lightbox.visible { opacity:1; visibility:visible; }
+    .lightbox img { width:auto; height:auto; max-width:100%; max-height:100%; min-width:min(600px,90%); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+    .lightbox-close { position:absolute; top:1.5rem; right:2rem; width:44px; height:44px; background:transparent; border:2px solid rgba(255,255,255,0.3); border-radius:2px; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color 0.2s, color 0.2s; }
+    .lightbox-close:hover { border-color:var(--gold); color:var(--gold); }
   </style>
 
   <!-- Structured Data -->
@@ -143,35 +176,17 @@
     {
       "@context": "https://schema.org",
       "@type": "Event",
-      "name": "Red & White Extravaganza",
-      "description": "Annual fundraiser celebrating Triple Nickle heritage while raising funds for the scholarship program.",
-      "image": "https://www.555ftbraggnc.org/images/events/Annual_Red_&_White_Extravaganza.webp",
-      "organizer": { "@type": "Organization", "name": "Samuel Council Chapter 555th Parachute Infantry Association", "url": "https://www.555ftbraggnc.org/" },
-      "location": { "@type": "Place", "name": "Fayetteville, North Carolina", "address": { "@type": "PostalAddress", "addressLocality": "Fayetteville", "addressRegion": "NC", "addressCountry": "US" } },
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "url": "https://www.555ftbraggnc.org/events.html"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Black & White Extravaganza",
-      "description": "An elegant evening honoring the courage and legacy of the 555th.",
-      "image": "https://www.555ftbraggnc.org/images/events/Black_&_White_Extravaganza.webp",
-      "organizer": { "@type": "Organization", "name": "Samuel Council Chapter 555th Parachute Infantry Association", "url": "https://www.555ftbraggnc.org/" },
-      "location": { "@type": "Place", "name": "Fayetteville, North Carolina", "address": { "@type": "PostalAddress", "addressLocality": "Fayetteville", "addressRegion": "NC", "addressCountry": "US" } },
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "url": "https://www.555ftbraggnc.org/events.html"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
       "name": "Western Extravaganza",
-      "description": "Our Western-themed fundraiser brings the chapter together for good food, great company, and a great cause.",
-      "image": "https://www.555ftbraggnc.org/images/events/Western_Extravaganza.webp",
+      "description": "Hosted with Vette's Unlimited Corvette Club. A Western-themed evening with BYOB, best-dressed contests, a 50/50 drawing, and prizes, benefiting the Samuel Council Chapter scholarship program.",
+      "image": "https://www.555ftbraggnc.org/images/events/2026_Western_Extravaganza.jpg",
+      "startDate": "2026-08-22T20:00:00-04:00",
+      "endDate": "2026-08-23T00:00:00-04:00",
       "organizer": { "@type": "Organization", "name": "Samuel Council Chapter 555th Parachute Infantry Association", "url": "https://www.555ftbraggnc.org/" },
-      "location": { "@type": "Place", "name": "Fayetteville, North Carolina", "address": { "@type": "PostalAddress", "addressLocality": "Fayetteville", "addressRegion": "NC", "addressCountry": "US" } },
+      "location": { "@type": "Place", "name": "Hope Mills Shrine Club", "address": { "@type": "PostalAddress", "streetAddress": "4461 Cameron Rd.", "addressLocality": "Hope Mills", "addressRegion": "NC", "addressCountry": "US" } },
+      "offers": [
+        { "@type": "Offer", "name": "Individual Ticket", "price": "50.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "Reserved Table (Personalized, seats a table)", "price": "400.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+      ],
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "url": "https://www.555ftbraggnc.org/events.html"
@@ -228,50 +243,90 @@
 
   <section class="events-intro">
     <div class="container fade-in">
-      <div class="section-eyebrow">Annual Events</div>
-      <h2 class="section-title" style="color:var(--navy);">Fundraising Extravaganzas</h2>
-      <p>Join us at our signature fundraising events throughout the year. These celebrations honor the legacy of the Triple Nickles while supporting our mission of education, community engagement, and our annual scholarship program.</p>
+      <div class="section-eyebrow">Upcoming Event</div>
+      <h2 class="section-title" style="color:var(--navy);">Western Extravaganza</h2>
+      <p>Join us for an evening of boots, hats, and BYOB fun in partnership with Vette's Unlimited Corvette Club. Every ticket sold supports our annual scholarship program.</p>
     </div>
   </section>
 
   <section class="events-main">
     <div class="container">
       <div class="event-feature fade-in">
-        <div class="event-feature-img">
-          <img src="/images/events/Annual_Red_&_White_Extravaganza.webp" alt="Annual Red and White Extravaganza" width="800" height="600" loading="lazy">
+        <div class="event-feature-img upcoming">
+          <span class="featured-badge">Next Event</span>
+          <img src="/images/events/2026_Western_Extravaganza.jpg" alt="Vette's Unlimited Corvette Club Western Extravaganza flyer, August 22 2026, Hope Mills Shrine Club" width="800" height="1200" loading="lazy">
         </div>
         <div class="event-feature-body">
-          <div class="event-tag">Annual Fundraiser</div>
-          <h2>Red &amp; White Extravaganza</h2>
-          <p>Our signature annual fundraiser celebrating Triple Nickle heritage while raising funds for the scholarship program. An elegant evening of community, history, and purpose, with all proceeds benefiting students in Cumberland County.</p>
-          <div class="event-dress"><span class="event-dress-dot"></span> Dress Code: Red &amp; White</div>
-          <a href="/contact" class="btn btn-gold">RSVP / Get Tickets</a>
-        </div>
-      </div>
-
-      <div class="event-feature reverse fade-in">
-        <div class="event-feature-img">
-          <img src="/images/events/Black_&_White_Extravaganza.webp" alt="Black and White Extravaganza" width="800" height="600" loading="lazy">
-        </div>
-        <div class="event-feature-body">
-          <div class="event-tag">Annual Event</div>
-          <h2>Black &amp; White Extravaganza</h2>
-          <p>An elegant evening honoring the courage and legacy of the 555th. A sophisticated gala that brings together the Fayetteville community to celebrate military history, recognize scholarship recipients, and raise critical funds.</p>
-          <div class="event-dress"><span class="event-dress-dot"></span> Dress Code: Black &amp; White</div>
-          <a href="/contact" class="btn btn-gold">RSVP / Get Tickets</a>
-        </div>
-      </div>
-
-      <div class="event-feature fade-in">
-        <div class="event-feature-img">
-          <img src="/images/events/Western_Extravaganza.webp" alt="Western Extravaganza" width="800" height="600" loading="lazy">
-        </div>
-        <div class="event-feature-body">
-          <div class="event-tag">Annual Event</div>
+          <div class="event-tag">Hosted with Vette's Unlimited Corvette Club</div>
           <h2>Western Extravaganza</h2>
-          <p>Boots and hats welcome. Our Western-themed fundraiser brings the chapter together for good food, great company, and a great cause. A fan favorite for its spirited atmosphere and the meaningful work it funds.</p>
+          <p>Boots and hats welcome. Our Western-themed fundraiser brings the chapter together with Vette's Unlimited Corvette Club for good food, great company, and a great cause, all proceeds benefiting our scholarship program.</p>
+
+          <div class="event-meta-grid">
+            <div class="event-meta-item">
+              <span class="event-meta-label">Date &amp; Time</span>
+              <span class="event-meta-value">Saturday, August 22, 2026<br>8:00 PM &ndash; 12:00 AM</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="event-meta-label">Location</span>
+              <span class="event-meta-value">Hope Mills Shrine Club<br>4461 Cameron Rd., Hope Mills, NC</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="event-meta-label">Cost</span>
+              <span class="event-meta-value">$50 per person<br>$400 per table (personalized, reserved)</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="event-meta-label">Benefits</span>
+              <span class="event-meta-value">All proceeds support our scholarship program</span>
+            </div>
+          </div>
+
+          <ul class="event-perks">
+            <li>BYOB</li>
+            <li>Prizes for 1st Place Best Dressed Male &amp; Female</li>
+            <li>50/50 drawing</li>
+            <li>2 tickets included to our next scheduled event</li>
+          </ul>
+
           <div class="event-dress"><span class="event-dress-dot"></span> Dress Code: Western</div>
-          <a href="/contact" class="btn btn-gold">RSVP / Get Tickets</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS ARCHIVE -->
+  <section class="past-events">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <div class="section-eyebrow">A Look Back</div>
+        <h2 class="section-title">Past Extravaganzas</h2>
+      </div>
+      <div class="past-events-grid">
+        <div class="past-event-card fade-in">
+          <div class="past-event-img">
+            <img src="/images/events/Annual_Red_&_White_Extravaganza.webp" alt="Annual Red and White Extravaganza" width="400" height="300" loading="lazy">
+          </div>
+          <div class="past-event-body">
+            <h3>Red &amp; White Extravaganza</h3>
+            <p>Our signature annual fundraiser celebrating Triple Nickle heritage while raising funds for the scholarship program.</p>
+          </div>
+        </div>
+        <div class="past-event-card fade-in">
+          <div class="past-event-img">
+            <img src="/images/events/Black_&_White_Extravaganza.webp" alt="Black and White Extravaganza" width="400" height="300" loading="lazy">
+          </div>
+          <div class="past-event-body">
+            <h3>Black &amp; White Extravaganza</h3>
+            <p>An elegant evening honoring the courage and legacy of the 555th, celebrating military history and scholarship recipients.</p>
+          </div>
+        </div>
+        <div class="past-event-card fade-in">
+          <div class="past-event-img">
+            <img src="/images/events/Western_Extravaganza.webp" alt="A previous Western Extravaganza" width="400" height="300" loading="lazy">
+          </div>
+          <div class="past-event-body">
+            <h3>Western Extravaganza (Past)</h3>
+            <p>A fan favorite for its spirited atmosphere, good food, and the meaningful scholarship work it funds.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -307,7 +362,7 @@
         </div>
         <div class="support-card fade-in">
           <h3>Community Outreach</h3>
-          <p>Our events sustain the chapter's ability to serve the broader Fayetteville and Fort Liberty community throughout the year.</p>
+          <p>Our events sustain the chapter's ability to serve the broader Fayetteville and Fort Bragg community throughout the year.</p>
           <ul>
             <li>Veteran family support</li>
             <li>Chapter operations</li>
@@ -374,6 +429,43 @@
   </footer>
 
   <a href="#" id="backToTop">&#8593;</a>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
   <script src="assets/js/nav.js" defer></script>
+  <script>
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var closeBtn = document.getElementById('lightboxClose');
+
+      function openLightbox(img) {
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.event-feature-img img, .past-event-img img').forEach(function (img) {
+        img.addEventListener('click', function () { openLightbox(img); });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
